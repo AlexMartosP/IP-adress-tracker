@@ -1,0 +1,250 @@
+/* Variables */
+:root {
+    --clr-gray-400: hsl(0, 0%, 59%);
+    --clr-gray-600: hsl(0, 0%, 17%);
+    --clr-white: hsl(0,0%,100%);
+
+    --ff-primary: 'Rubik', sans-serif;
+
+    --fw-bold: 700;
+    --fw-semi-bold: 500;
+    --fw-regular: 400;
+
+    --fs-400: 0.8rem; 
+    --fs-500: 1.125rem;
+    --fs-600: 1.7rem;
+    
+    --spacer-400: 1em;
+    --spacer-500: 1.75em;
+    --spacer-600: 2em;
+}
+
+@media screen and (min-width: 50em) {
+    :root {
+        --spacer-400: 1em;
+        --spacer-600: 3em;
+    }
+}
+
+/* Reset */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utility classes */
+.text-clr-400 {
+    color: var(--clr-gray-400);
+}
+.text-clr-600 {
+    color: var(--clr-gray-600);
+}
+.text-clr-white {
+    color: var(--clr-white);
+}
+
+.fw-400 {
+    font-weight: var(--fw-regular);
+}
+.fw-500 {
+    font-weight: var(--fw-semi-bold);
+}
+.fw-700 {
+    font-weight: var(--fw-bold);
+}
+
+.fs-400 {
+    font-size: var(--fs-400);
+}
+.fs-500 {
+    font-size: var(--fs-500);
+}
+.fs-600 {
+    font-size: var(--fs-600);
+}
+
+.even-column {
+    display: grid;
+    grid-auto-flow: row;
+    gap: var(--spacer-500);
+}
+
+@media screen and (min-width: 50em) {
+    .even-column {
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+    }
+}
+
+/* General */
+body {
+    font-family: var(--ff-primary);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    position: relative;
+    background-image: url('images/pattern-bg.png');
+    background-size: cover;
+    background-position: center;
+    padding-block-start: var(--spacer-600);
+    padding-inline: var(--spacer-500);
+    text-align: center;
+    margin-block-end: -40%;
+}
+
+@media  screen and (min-width: 50em) {
+    header {
+        margin-block-end: -85px;
+    }
+}
+/* Form */
+.ip-form {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-block:var(--spacer-500) var(--spacer-500);
+    max-width: 600px;
+    margin-inline: auto;
+}
+
+.ip-form input[type="text"] {
+    width: 85%;
+    border: none;
+    padding: var(--spacer-400);
+    border-radius: var(--spacer-400) 0 0 var(--spacer-400);
+}
+.ip-form input[type="text"]:focus-visible {
+ outline: none;   
+}
+
+.ip-form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 var(--spacer-400) var(--spacer-400) 0;
+    width: 15%;
+    background-color: var(--clr-gray-600);
+    cursor: pointer;
+    border: none;
+}
+.ip-form button:hover {
+    background-color: var(--clr-gray-400);
+}
+
+#error {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: rgb(190, 39, 39);
+    display: none;
+}
+
+@media  screen and (min-width: 50em) {
+    .ip-form {
+        padding-block-end: var(--spacer-600);
+    }
+}
+
+/* Main */
+.content {
+    position: relative;
+    background-color: var(--clr-white);
+    border-radius: var(--spacer-400);
+    padding: var(--spacer-500);
+    z-index: 999;
+    min-height: 322px
+}
+
+.content div {
+    position: relative;
+}
+
+.column-title {
+    display: block;
+    margin-block-end: var(--spacer-400);
+    letter-spacing: 2px;
+}
+
+@media  screen and (min-width: 50em) {
+    .content {
+        text-align: start;
+        padding: var(--spacer-600);
+        min-height: 80px;
+    }
+
+    .content div {
+        max-width: 15em;
+    }
+
+    .content div:not(:first-of-type)::before {
+        content: "";
+        height: 100%;
+        border-left: 1px solid var(--clr-gray-400);
+        position: absolute;
+        left: -15%;
+    } 
+}
+
+/* Map */
+#map { 
+    background-color: #ddd;
+    flex: 2; 
+}

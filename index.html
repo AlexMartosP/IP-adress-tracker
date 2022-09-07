@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+  integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+  crossorigin=""/>
+ <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+ integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+ crossorigin=""></script>
+</head>
+<body>
+  <header>
+    <h1 class="text-clr-white fs-600 fw-500">IP Adress Tracker</h1>
+    <form class="ip-form" id="form">
+      <span id="error">Enter a valid IPv4 or IPv6 address</span>
+      <input type="text" class="fs-500" id="ipInput" placeholder="Search for any IP address" required>
+      <button type="submit"><img src="images/icon-arrow.svg" alt=""></button>
+    </form>
+    <main class="content | even-column">
+      <div>
+        <span class="column-title | text-clr-400 fs-400 fw-700">IP ADRESS</span>
+        <p class="text-clr-600 fs-600 fw-500" id="ipOutput"></p>
+      </div>
+      <div>
+        <span class="column-title | text-clr-400 fs-400 fw-700">LOCATION</span>
+        <p class="text-clr-600 fs-600 fw-500" id="locOutput"></p>
+      </div>
+      <div>
+        <span class="column-title | text-clr-400 fs-400 fw-700">TIMEZONE</span>
+        <p class="text-clr-600 fs-600 fw-500" id="timeOutput"></p>
+      </div>
+      <div>
+        <span class="column-title | text-clr-400 fs-400 fw-700">ISP</span>
+        <p class="text-clr-600 fs-600 fw-500" id="ispOutput"></p>
+      </div>
+    </main>
+  </header>
+  <div id="map"></div>
+  <script src="script.js"></script>
+</body>
+</html>
